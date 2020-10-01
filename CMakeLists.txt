@@ -60,8 +60,9 @@ else()
   set(CPU_IS_LITTLE_ENDIAN 1)
 endif()
 
-find_library(LIBSAMPLERATE_MATH_LIBRARY m)
-
+if(NOT WIN32)
+  find_library(LIBSAMPLERATE_MATH_LIBRARY m)
+endif()
 # This will set CPU_CLIPS_NEGATIVE and CPU_CLIPS_POSITIVE
 clip_mode()
 
